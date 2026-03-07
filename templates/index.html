@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>FitBuddy AI</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>FitBuddy AI</h1>
+
+<div class="card">
+
+<form action="/generate-workout" method="post">
+
+<label>Name</label>
+<input name="username" required>
+
+<label>User ID</label>
+<input name="user_id" required>
+
+<label>Age</label>
+<input name="age" required>
+
+<label>Weight</label>
+<input name="weight" required>
+
+<label>Goal</label>
+<select name="goal">
+<option>Muscle Gain</option>
+<option>Weight Loss</option>
+<option>Strength</option>
+</select>
+
+<label>Intensity</label>
+<select name="intensity">
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+</select>
+
+<button type="submit">Generate Plan</button>
+
+</form>
+
+</div>
+
+<div id="loading" style="display:none;text-align:center">
+
+<h3>Generating your AI workout...</h3>
+
+<div class="loader"></div>
+
+</div>
+
+<br>
+
+<a href="/view-all-users">
+<button>Admin Dashboard</button>
+</a>
+
+</div>
+
+<script>
+
+const form=document.querySelector("form");
+
+form.addEventListener("submit",()=>{
+document.getElementById("loading").style.display="block";
+});
+
+</script>
+
+</body>
+</html>

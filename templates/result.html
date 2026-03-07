@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Workout Plan</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Hello {{username}}</h1>
+
+<div class="card">
+
+<pre class="workout-text">{{ workout_plan }}</pre>
+
+</div>
+
+<div class="card">
+
+<h2>Nutrition Tip</h2>
+
+<p>{{nutrition_tip}}</p>
+
+</div>
+
+<div class="card">
+
+<h2>Update Plan</h2>
+
+<form action="/submit-feedback" method="post">
+
+<input type="hidden" name="user_id" value="{{user_id}}">
+
+<textarea name="feedback"></textarea>
+
+<button>Update Plan</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>Your Progress</h2>
+
+<canvas id="progressChart"></canvas>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx=document.getElementById('progressChart');
+
+new Chart(ctx,{
+type:'line',
+data:{
+labels:["Week1","Week2","Week3","Week4"],
+datasets:[{
+label:"Weight Progress",
+data:[{{weight}},{{weight}},{{weight}},{{weight}}],
+borderColor:"#ff6600"
+}]
+}
+});
+
+</script>
+
+</body>
+</html>

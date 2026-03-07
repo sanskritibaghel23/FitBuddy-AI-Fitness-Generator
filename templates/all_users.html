@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Admin Dashboard</title>
+<meta http-equiv="refresh" content="5">
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>FitBuddy Admin Dashboard</h1>
+
+<div class="card">
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Weight</th>
+<th>Goal</th>
+<th>Intensity</th>
+<th>Plan History</th>
+</tr>
+
+{% for user in users %}
+
+<tr>
+
+<td>{{user.name}}</td>
+<td>{{user.age}}</td>
+<td>{{user.weight}}</td>
+<td>{{user.goal}}</td>
+<td>{{user.intensity}}</td>
+
+<td>
+<a href="/user-plans/{{user.id}}">
+<button>View Plans</button>
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

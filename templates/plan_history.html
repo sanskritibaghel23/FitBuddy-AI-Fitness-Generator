@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Plan History</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Plan History for {{user_id}}</h1>
+
+{% for plan in plans %}
+
+<div class="card">
+
+<h3>Plan ID: {{plan.id}}</h3>
+
+<pre>{{plan.original_plan}}</pre>
+
+{% if plan.updated_plan %}
+
+<h4>Updated Plan</h4>
+
+<pre>{{plan.updated_plan}}</pre>
+
+{% endif %}
+
+<a href="/delete-plan/{{plan.id}}">
+<button>Delete Plan</button>
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>
